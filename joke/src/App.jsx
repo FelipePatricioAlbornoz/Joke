@@ -1,10 +1,16 @@
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import Home from './components/Home.j'
+
+
 function App() {
   return (
-    <div>
-      <h1>
-        TEST
-      </h1>
-    </div>
+  <Router>
+    <Routes>
+      <Route>
+
+      </Route>
+    </Routes>
+  </Router>
   ) 
 }
 
