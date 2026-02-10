@@ -1,18 +1,18 @@
 import useFetch from "./useFetch";
-import useEffect from 'react';
+import {useEffect, useState} from 'react';
 
 function TelaPiada() {
+    const [joke, setJoke] = useState("");
     const api = useFetch();
 
     useEffect(() => {
-        const data = await api.get(Any);
-        const joke = data.json();
+        api.get("Any").then((response) => setJoke(response.joke)).catch((err) => {console.error("ops! ocorreu um erro" + err);})
     }, []);
 
     return (
         <div>
             <h1>Piada</h1>
-            <p>{joke.joke}</p>
+            <p>{joke}</p>
         </div>
     );
 }
