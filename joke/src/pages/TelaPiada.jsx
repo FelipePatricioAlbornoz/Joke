@@ -1,7 +1,7 @@
 import useFetch from "./useFetch";
 import useEffect from 'react';
 
-function TelaPiada() {
+export default function TelaPiada() {
     const api = useFetch();
 
     useEffect(() => {
@@ -15,4 +15,4 @@ function TelaPiada() {
             <p>{joke.joke}</p>
         </div>
     );
-}
+};
