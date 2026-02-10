@@ -1,4 +1,4 @@
-import useFetch from "./useFetch";
+import useFetch from "..api/useFetch";
 import {useEffect, useState} from 'react';
 
 function TelaPiada() {
