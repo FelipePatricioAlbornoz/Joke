@@ -1,12 +1,11 @@
-import useFetch from "../api/useFetch";
+import api from "../api/api.js";
 import {useEffect, useState} from 'react';
 
 export default function TelaPiada() {
     const [joke, setJoke] = useState("");
-    const api = useFetch();
 
     useEffect(() => {
-        api.get("Any").then((response) => setJoke(response.joke)).catch((err) => {console.error("ops! ocorreu um erro" + err);})
+        api.get("Any").then((response) => setJoke(response.data.setup)).catch((err) => {console.error("ops! ocorreu um erro" + err);})
     }, []);
 
     return (
