@@ -15,4 +15,4 @@ function TelaPiada() {
             <p>{joke}</p>
         </div>
     );
-}
+};
