@@ -1,7 +1,7 @@
 import useFetch from "../api/useFetch";
 import {useEffect, useState} from 'react';
 
-function TelaPiada() {
+export default function TelaPiada() {
     const [joke, setJoke] = useState("");
     const api = useFetch();
 
