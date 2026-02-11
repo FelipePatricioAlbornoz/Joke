@@ -7,10 +7,18 @@ export default function Home() {
     return(
         <div>
              <h1>Seu site de piadas preferido!!!</h1>
-
-             <button onClick={() => navigate('/categories')} ></button>
-             <button onClick={() => navigate('/piadasAleatorias')} ></button>
-             <button onClick={() => navigate('/piadasNFSW')} ></button>
+             <div>
+                 <h3>Selecione sue tipo de Piada Preferido e se divirta!</h3>
+             <button onClick={() => navigate('/categories')} >Categorias</button>
+             </div>
+             <div>
+                <h3>Piadas de qualquer tipo para Você</h3>
+             <button onClick={() => navigate('/piadasAleatorias')} >Piadas Aleatórias</button>
+             </div>
+             <div>
+                 <h3>Apenas Piadas pra Maiores</h3>
+             <button onClick={() => navigate('/piadasNFSW')} >Piadas +18</button>
+            </div>
         </div>
     )
 }
