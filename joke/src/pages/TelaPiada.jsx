@@ -18,7 +18,7 @@ export default function TelaPiada() {
         <div>
             <h1>Piada</h1>
             <p>{joke}</p>
-            <button onClick={() => navigate('/piadaNFSW')} ></button>
+            <button onClick={() => navigate('/')} ></button>
         </div>
     );
 };

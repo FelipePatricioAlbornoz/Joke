@@ -7,7 +7,7 @@ export default function Categories() {
     return(
         <div>
              <h1>oi</h1>
-             <button onClick={() => navigate('/home')} ></button>
+             <button onClick={() => navigate('/')} ></button>
         </div>
     )
 }
