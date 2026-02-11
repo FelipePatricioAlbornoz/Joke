@@ -21,9 +21,9 @@ export default function TelaPiadaNFSW() {
 
     return (
         <div>
-            <h1>Piada</h1>
+            <h1>Piada +18</h1>
             <p>{joke}</p>
-            <button onClick={() => navigate('/')} ></button>
+            <button onClick={() => navigate('/')} >Voltar</button>
             <button onClick={() => PegarPiada()}>Nova Piada</button>
         </div>
     );
