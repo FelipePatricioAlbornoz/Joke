@@ -17,7 +17,7 @@ export default function Home() {
              </div>
              <div>
                  <h3>Apenas Piadas pra Maiores</h3>
-             <button onClick={() => navigate('/piadasNFSW')} >Piadas +18</button>
+             <button onClick={() => navigate('/piadaNFSW')} >Piadas +18</button>
             </div>
         </div>
     )
