@@ -3,6 +3,7 @@ import TelaPiada from './pages/TelaPiada.jsx'
 import Home from './pages/Home.jsx'
 import Categories from './pages/Categories.jsx'
 import Filtro from './pages/Filtro.jsx'
+import TelaPiadaNFSW from './pages/TelaPiadaNSFW'
 
 
 
@@ -14,6 +15,7 @@ function App() {
         <Route path='/home' element={<Home />} />
         <Route path='/filtro' element={<Filtro />} />
         <Route path='/categories' element={<Categories />} />
+        <Route path='/piadaNFSW' element={<TelaPiadaNFSW />} />
       </Routes>
     </Router>
   )
