@@ -7,24 +7,34 @@ export default function Categories() {
     const [category, setCategory] =useState("Any");
     const navigate = useNavigate()
 
+    function PegarPiada() {
+            api.get(`/${category}`, {
+                params: {
+                    blacklistFlags: "nsfw,religious,political,racist,sexist,explicit",
+                    type: "single"
+                }
+            })
+            .then((response) => {
+                setJoke(response.data.joke);
+            })
+            .catch((err) => console.error(err));     
+    }
+
     useEffect(() => {
-        api.get(category)
-        .then((response) => setJoke(response.data.joke))
-        .catch((err) => {console.error("ops! ocorreu um erro" + err);})
+        PegarPiada();
     }, [category]);
 
     return(
         <div>
             <p>{joke}</p>
              <select value={category} onChange={(e) => setCategory(e.target.value)}>
+                <option value="Any">Todas</option>
                 <option value="Programming">Programação</option>
                 <option value="Misc">Diversos</option>
-                <option value="Dark">Sombrio</option>
                 <option value="Pun">Trocadilhos</option>
-                <option value="Spooky">Assustador</option>
-                <option value="Christmas">Natal</option>
             </select>
              <button onClick={() => navigate('/')} >Voltar</button>
+             <button onClick={() => PegarPiada()}>Nova Piada</button>
         </div>
     )
 }

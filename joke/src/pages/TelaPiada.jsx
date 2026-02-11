@@ -8,7 +8,14 @@ export default function TelaPiada() {
     const navigate = useNavigate()
 
     function PegarPiada() {
-        api.get().then((response) => setJoke(response.data.joke)).catch((err) => {console.error("ops! ocorreu um erro" + err);});
+        api.get('Any', {
+            params: {
+                blacklistFlags: "nsfw,religious,political,racist,sexist,explicit",
+                type: "single"
+            }
+        })
+        .then((response) => setJoke(response.data.joke))
+        .catch((err) => {console.error("ops! ocorreu um erro" + err);});
     }
 
     useEffect(() => {

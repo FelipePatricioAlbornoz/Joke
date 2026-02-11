@@ -1,4 +1,4 @@
-import apiNSFW from "../api/apiNSFW.js";
+import api from "../api/api.js";
 import {useEffect, useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -8,7 +8,11 @@ export default function TelaPiadaNFSW() {
     const navigate = useNavigate()
 
     function PegarPiada() {
-        apiNSFW.get().then((response) => setJoke(response.data.joke)).catch((err) => {console.error("ops! ocorreu um erro" + err);});
+        api.get('Dark', {params: {
+            type: "single"
+        }})
+        .then((response) => setJoke(response.data.joke))
+        .catch((err) => {console.error("ops! ocorreu um erro" + err);});
     }
 
     useEffect(() => {
