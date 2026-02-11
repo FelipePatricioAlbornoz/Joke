@@ -8,7 +8,7 @@ export default function Home() {
         <div>
              <h1>Seu site de piadas preferido!!!</h1>
              <div>
-                 <h3>Selecione sue tipo de Piada Preferido e se divirta!</h3>
+                 <h3>Selecione seu tipo de Piada Preferido e se divirta!</h3>
              <button onClick={() => navigate('/categories')} >Categorias</button>
              </div>
              <div>
