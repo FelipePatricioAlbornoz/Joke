@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const apiNSFW = axios.create({
-    baseURL: "https://sv443.net/jokeapi/v2/joke/Any?type=single",
+    baseURL: "https://v2.jokeapi.dev/joke/Dark?type=single",
     headers: { "Content-Type": "application/json" }
 })
 
