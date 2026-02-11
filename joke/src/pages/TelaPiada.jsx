@@ -4,21 +4,27 @@ import { useNavigate } from 'react-router-dom';
 
 export default function TelaPiada() {
     const [joke, setJoke] = useState("");
+    const [load, setLoad] =useState(false);
     const navigate = useNavigate()
 
+    function PegarPiada() {
+        api.get().then((response) => setJoke(response.data.joke)).catch((err) => {console.error("ops! ocorreu um erro" + err);});
+    }
+
     useEffect(() => {
-        api.get("Any").then((response) => console.log(response.data.setup)).catch((err) => {console.error("ops! ocorreu um erro" + err);})
-        while (setJoke === undefined){
-            api.get("Any").then((response) => setJoke(response.data.setup)).catch((err) => {console.error("ops! ocorreu um erro" + err);})
-            console.log("Tentando fazer a requisição da api");
-            }
-    }, []);
+        if (load) return;
+
+        setLoad(true);
+
+        PegarPiada();
+    }, [load]);
 
     return (
         <div>
             <h1>Piada</h1>
             <p>{joke}</p>
-            <button onClick={() => navigate('/')} ></button>
+            <button onClick={() => navigate('/')}>Voltar</button>
+            <button onClick={() => PegarPiada()}>Nova Piada</button>
         </div>
     );
 };
