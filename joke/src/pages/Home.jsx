@@ -1,12 +1,13 @@
 import { useNavigate } from 'react-router-dom';
 
-const navigate = useNavigate()
-
 export default function Categories() {
+
+    const navigate = useNavigate()
+
     return(
         <div>
              <h1>oi</h1>
-             <button onClick={navigate('/filtro')} ></button>
+             <button onClick={() => navigate('/filtro')} ></button>
         </div>
     )
 }
