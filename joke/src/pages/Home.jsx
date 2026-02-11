@@ -10,7 +10,7 @@ export default function Home() {
             display: 'grid',
             placeItems: 'center',
             height: '100vh',
-            gridTemplateRows: '170px 150px 150px auto'
+            gridTemplateRows: '170px 150px 150px 150px auto'
             }}>
              <h1>Seu site de piadas preferido!!!</h1>
              <div style={{textAlign: 'center'}}>

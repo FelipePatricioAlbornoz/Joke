@@ -32,7 +32,7 @@ export default function TelaPiada() {
             display: 'grid',
             placeItems: 'center',
             height: '100vh',
-            gridTemplateRows: '170px 150px 150px 50px auto'
+            gridTemplateRows: '150px 120px 150px 300px auto'
             }}>
             <div>
             <h1>Piada</h1>
@@ -40,9 +40,12 @@ export default function TelaPiada() {
             <div>
             <p>{joke}</p>
             </div>
-            <button onClick={() => PegarPiada()}>Nova Piada</button>
-            <div>
-            </div>
+            <button onClick={() => PegarPiada()}
+            style={{
+                height: '70px',
+                width: '200px'
+        }}
+            >Nova Piada</button>
             <div>
             <button onClick={() => navigate('/')}>Voltar</button>
             </div>
