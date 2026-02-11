@@ -24,11 +24,25 @@ export default function TelaPiadaNFSW() {
     }, [load]);
 
     return (
-        <div>
+        <div 
+        style={{
+            display: 'grid',
+            placeItems: 'center',
+            height: '100vh',
+            gridTemplateRows: '150px 120px 150px 300px auto'
+            }}>
+            <div>
             <h1>Piada +18</h1>
+            </div>
+            <div>
             <p>{joke}</p>
+            </div>
+            <button onClick={() => PegarPiada()} 
+            style={{
+                height: '70px',
+                width: '200px'
+        }}>Nova Piada</button>
             <button onClick={() => navigate('/')} >Voltar</button>
-            <button onClick={() => PegarPiada()}>Nova Piada</button>
         </div>
     );
 };
