@@ -5,7 +5,11 @@ export default function TelaPiada() {
     const [joke, setJoke] = useState("");
 
     useEffect(() => {
-        api.get("Any").then((response) => setJoke(response.data.setup)).catch((err) => {console.error("ops! ocorreu um erro" + err);})
+        api.get("Any").then((response) => console.log(response.data.setup)).catch((err) => {console.error("ops! ocorreu um erro" + err);})
+        while (setJoke === undefined){
+            api.get("Any").then((response) => setJoke(response.data.setup)).catch((err) => {console.error("ops! ocorreu um erro" + err);})
+            console.log("Tentando fazer a requisição da api");
+            }
     }, []);
 
     return (
