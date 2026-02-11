@@ -1,5 +1,12 @@
-export default function Filtro() {
+import { useNavigate } from 'react-router-dom';
+
+const navigate = useNavigate()
+
+export default function Categories() {
     return(
-        <h1>oi</h1>
+        <div>
+             <h1>oi</h1>
+             <button onClick={navigate('/categoires')} ></button>
+        </div>
     )
 }
