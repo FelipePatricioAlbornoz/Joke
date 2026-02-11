@@ -45,10 +45,8 @@ export default function TelaPiada() {
                 height: '70px',
                 width: '200px'
         }}
-            >Nova Piada</button>
-            <div>
+            >Nova Piada</button>     
             <button onClick={() => navigate('/')}>Voltar</button>
-            </div>
-        </div>
+      </div>
     );
 };
