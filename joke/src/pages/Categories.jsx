@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import {useEffect, useState} from 'react';
-import api from '../api/api'
+import { getJoke } from '../api/api';
+import { ROUTES } from '../constants/Routes.js';
 
 export default function Categories() {
     const [joke, setJoke] = useState("");
@@ -8,15 +9,8 @@ export default function Categories() {
     const navigate = useNavigate()
 
     function PegarPiada() {
-            api.get(`/${category}`, {
-                params: {
-                    blacklistFlags: "nsfw,religious,political,racist,sexist,explicit",
-                    type: "single"
-                }
-            })
-            .then((response) => {
-                setJoke(response.data.joke);
-            })
+            getJoke(category, true)
+            .then((data) => setJoke(data.joke))
             .catch((err) => console.error(err));     
     }
 
@@ -48,7 +42,7 @@ export default function Categories() {
             <p style={{marginRight: '300px', marginLeft: '300px'}}>{joke}</p>
             </div>
             <button onClick={() => PegarPiada()} style={{marginLeft: '-650px',}}>Nova Piada </button>
-            <button onClick={() => navigate('/')} style={{marginLeft: '260px', marginTop: '400px'}}>Voltar</button>
+            <button onClick={() => navigate(ROUTES.HOME)} style={{marginLeft: '260px', marginTop: '400px'}}>Voltar</button>
         </div>
     )
 }

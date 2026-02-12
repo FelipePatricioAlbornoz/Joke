@@ -1,16 +1,15 @@
-import api from "../api/api.js";
+import { getJoke } from "../api/api.js";
 import {useEffect, useState} from 'react';
 import { useNavigate } from 'react-router-dom';
+import { ROUTES } from '../constants/Routes.js';
 
-export default function TelaPiadaNFSW() {
+export default function TelaPiadaNSFW() {
     const [joke, setJoke] = useState("");
     const [load, setLoad] =useState(false);
     const navigate = useNavigate()
 
     function PegarPiada() {
-        api.get('Dark', {params: {
-            type: "single"
-        }})
+        getJoke('Dark', { blacklist: false })
         .then((response) => setJoke(response.data.joke))
         .catch((err) => {console.error("ops! ocorreu um erro" + err);});
     }
