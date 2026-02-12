@@ -10,6 +10,7 @@ function App() {
     <Router>
       <Routes>
         <Route path={ROUTES.HOME} element={<Home />} />
+        <Route path={ROUTES.CATEGORIES} element={<Categories />} />
         <Route path={ROUTES.RANDOM} element={<TelaPiada />} />
         <Route path={ROUTES.NSFW} element={<TelaPiadaNSFW />} />
         <Route path="*" element={<Navigate to={ROUTES.HOME} replace />} />
