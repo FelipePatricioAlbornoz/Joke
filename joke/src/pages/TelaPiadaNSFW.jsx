@@ -10,7 +10,7 @@ export default function TelaPiadaNSFW() {
 
     function PegarPiada() {
         getJoke('Dark', { blacklist: false })
-        .then((response) => setJoke(response.data.joke))
+        .then((data) => setJoke(data.joke))
         .catch((err) => {console.error("ops! ocorreu um erro" + err);});
     }
 
