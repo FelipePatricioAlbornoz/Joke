@@ -1,48 +1,48 @@
 import { useNavigate } from 'react-router-dom';
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 import { getJoke } from '../api/api';
 import { ROUTES } from '../constants/Routes.js';
 
 export default function Categories() {
     const [joke, setJoke] = useState("");
-    const [category, setCategory] =useState("Any");
+    const [category, setCategory] = useState("Any");
     const navigate = useNavigate()
 
     function PegarPiada() {
-            getJoke(category, true)
+        getJoke(category, true)
             .then((data) => setJoke(data.joke))
-            .catch((err) => console.error(err));     
+            .catch((err) => console.error(err));
     }
 
     useEffect(() => {
         PegarPiada();
     }, [category]);
 
-    return(
+    return (
         <div
-        style={{
-            display: 'grid',
-            placeItems: 'center',
-            height: '100vh',
-            gridTemplateRows: '170px 150px 150px  auto',
-            gridTemplateColumns: '4fr 1fr' 
-            }}> 
+            style={{
+                display: 'grid',
+                placeItems: 'center',
+                height: '100vh',
+                gridTemplateRows: '170px 150px 150px  auto',
+                gridTemplateColumns: '4fr 1fr'
+            }}>
             <div>
-            <h2>Escolha um tipo de Piada da sua Escolha</h2>
+                <h2>Escolha um tipo de Piada da sua Escolha</h2>
             </div>
-            <div style={{marginLeft: '-650px',}}>
-            <select value={category} onChange={(e) => setCategory(e.target.value)}>
-                <option value="Any">Todas</option>
-                <option value="Programming">Programação</option>
-                <option value="Misc">Diversos</option>
-                <option value="Pun">Trocadilhos</option>
-            </select>
+            <div style={{ marginLeft: '-650px', }}>
+                <select value={category} onChange={(e) => setCategory(e.target.value)}>
+                    <option value="Any">Todas</option>
+                    <option value="Programming">Programação</option>
+                    <option value="Misc">Diversos</option>
+                    <option value="Pun">Trocadilhos</option>
+                </select>
             </div>
             <div>
-            <p style={{marginRight: '300px', marginLeft: '300px'}}>{joke}</p>
+                <p style={{ marginRight: '300px', marginLeft: '300px' }}>{joke}</p>
             </div>
-            <button onClick={() => PegarPiada()} style={{marginLeft: '-650px',}}>Nova Piada </button>
-            <button onClick={() => navigate(ROUTES.HOME)} style={{marginLeft: '260px', marginTop: '400px'}}>Voltar</button>
+            <button onClick={() => PegarPiada()} style={{ marginLeft: '-650px', }}>Nova Piada </button>
+            <button onClick={() => navigate(ROUTES.HOME)} style={{ marginLeft: '260px', marginTop: '400px' }}>Voltar</button>
         </div>
     )
 }

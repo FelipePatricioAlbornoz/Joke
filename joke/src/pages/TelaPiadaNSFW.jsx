@@ -1,17 +1,17 @@
 import { getJoke } from "../api/api.js";
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '../constants/Routes.js';
 
 export default function TelaPiadaNSFW() {
     const [joke, setJoke] = useState("");
-    const [load, setLoad] =useState(false);
+    const [load, setLoad] = useState(false);
     const navigate = useNavigate()
 
     function PegarPiada() {
         getJoke('Dark', { blacklist: false })
-        .then((data) => setJoke(data.joke))
-        .catch((err) => {console.error("ops! ocorreu um erro" + err);});
+            .then((data) => setJoke(data.joke))
+            .catch((err) => { console.error("ops! ocorreu um erro" + err); });
     }
 
     useEffect(() => {
@@ -23,24 +23,24 @@ export default function TelaPiadaNSFW() {
     }, [load]);
 
     return (
-        <div 
-        style={{
-            display: 'grid',
-            placeItems: 'center',
-            height: '100vh',
-            gridTemplateRows: '150px 120px 150px 300px auto'
+        <div
+            style={{
+                display: 'grid',
+                placeItems: 'center',
+                height: '100vh',
+                gridTemplateRows: '150px 120px 150px 300px auto'
             }}>
             <div>
-            <h1>Piada +18</h1>
+                <h1>Piada +18</h1>
             </div>
             <div>
-            <p>{joke}</p>
+                <p>{joke}</p>
             </div>
-            <button onClick={() => PegarPiada()} 
-            style={{
-                height: '70px',
-                width: '200px'
-        }}>Nova Piada</button>
+            <button onClick={() => PegarPiada()}
+                style={{
+                    height: '70px',
+                    width: '200px'
+                }}>Nova Piada</button>
             <button onClick={() => navigate('/')} >Voltar</button>
         </div>
     );
